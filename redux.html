@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <script src="main.js"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/redux/4.0.0/redux.js"></script>
+</head>
+<body>
+    <div>
+        <h4>Redux</h4>
+    </div>
+    <div>
+        <p>El número es :</p>
+    </div>
+
+    <script type="text/javascript">
+        console.log("It works");
+
+        // I: State
+        let state = {
+            numero: 0
+        }
+
+        // II. Store (reducer, state)
+        var store = Redux.createStore(reducer, state);
+
+        /// III. REDUCER función que regresa un state
+        function reducer(state, action){
+            console.log('Se ejecuta el reduceeeer...........')
+            let nuevoState = Object.assign({},state)
+            console.log(nuevoState);
+            switch (action.type) {
+                case 'AUM': 
+                nuevoState.numero = state.numero + 1;
+                return nuevoState;
+
+                default:
+                    break;
+            }
+            return state;
+        }
+
+
+        // IV. ACTION  key = "type"
+        let actionAumentar = {
+            type: 'AUM'
+        }
+
+        // V. DISPATCH
+        store.dispatch(actionAumentar);
+
+    </script>
+</body>
+</html>

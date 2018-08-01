@@ -1,27 +1,31 @@
 import { createBottomTabNavigator } from 'react-navigation';
+import { StackHome } from './StackHome';
 import Add from './Add';
-import Search from './Search';
-import Home from './Home';
 import Follow from './Follow';
 import Profile from './Profile';
+import { StackSearch } from './StackSearch';
+import { TabFollow } from './TabFollow';
+import { StackFollow } from './StackFollow';
 
 
 const RutasAutenticadas = createBottomTabNavigator({
     Home: {
-        screen: Home,
+        screen: StackHome,
     },
     Search: {
-        screen: Search,
+        screen: StackSearch,
     },
     Add: {
         screen: Add,
     },
     Follow: {
-        screen: Follow,
+        screen: StackFollow,
     },
     Profile: {
         screen: Profile,
     },
+}, {
+    animationEnabled: true,
 });
 
 export { RutasAutenticadas };
