@@ -1,7 +1,7 @@
-import { createTabNavigator } from 'react-navigation';
+import { createMaterialTopTabNavigator } from 'react-navigation';
 import Follow from './Follow';
 
-const TabFollow = createTabNavigator({
+const TabFollow = createMaterialTopTabNavigator({
     Follow: {
         screen: Follow,
     },

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,12 +10,19 @@
     <script src="main.js"></script> -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/redux/4.0.0/redux.js"></script>
 </head>
+
 <body>
     <div>
         <h4>Redux</h4>
     </div>
     <div>
-        <p>El número es :</p>
+        <p>El número es:
+            <span id="numero" style="font-weight: bold"></span>
+        </p>
+        <br>
+        <button onclick="aumentar()">Aumentar</button>
+        <br>
+        <button onclick="disminuir()">Disminuir</button>
     </div>
 
     <script type="text/javascript">
@@ -29,14 +37,18 @@
         var store = Redux.createStore(reducer, state);
 
         /// III. REDUCER función que regresa un state
-        function reducer(state, action){
+        function reducer(state, action) {
             console.log('Se ejecuta el reduceeeer...........')
-            let nuevoState = Object.assign({},state)
-            console.log(nuevoState);
+            let nuevoState = Object.assign({}, state)
             switch (action.type) {
-                case 'AUM': 
-                nuevoState.numero = state.numero + 1;
-                return nuevoState;
+                case 'AUM':
+                    nuevoState.numero = state.numero + 1;
+                    console.log(nuevoState);
+                    return nuevoState;
+                case 'DIS':
+                    nuevoState.numero = state.numero - 1;
+                    console.log(nuevoState);
+                    return nuevoState;
 
                 default:
                     break;
@@ -49,10 +61,37 @@
         let actionAumentar = {
             type: 'AUM'
         }
+        let actionDisminuir = {
+            type: 'DIS'
+        }
 
         // V. DISPATCH
-        store.dispatch(actionAumentar);
+        // store.dispatch(actionAumentar);
 
+
+        var aumentar = function () {
+            store.dispatch(actionAumentar);
+        }
+
+        var disminuir = function () {
+            store.dispatch(actionDisminuir);
+        }
+
+        // VI: GETSTATE
+
+        var numeroSpan = document.getElementById('numero');
+        numeroSpan.innerHTML = store.getState().numero;
+
+        var actualizarNumero = function () {
+            var numeroSpan = document.getElementById('numero');
+            numeroSpan.innerHTML = store.getState().numero;
+        }
+
+
+        // VII Suscribir nuestro estado
+        // Subscribe
+        store.subscribe(actualizarNumero);
     </script>
 </body>
+
 </html>

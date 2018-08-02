@@ -1,32 +1,11 @@
 import React from 'react';
 import { Text, View, Button } from 'react-native';
 import { createStackNavigator } from 'react-navigation';
+import SignIn from './SignIn';
+import SignUp from './SignUp';
+
 
 console.disableYellowBox = ['Remote bebugger'];
-
-const SignIn = (props) => {
-    const { navigation } = props;
-    return (
-        <View style={{ justifyContent: 'center', flex: 1 }}>
-            <Text>Componente SignIn</Text>
-            <Button
-                title="Navegar a SignUp"
-                onPress={() => { navigation.navigate('SignUp'); }}
-            />
-        </View>);
-};
-
-const SignUp = (props) => {
-    const { navigation } = props;
-    return (
-        <View style={{ justifyContent: 'center', flex: 1 }}>
-            <Text>Componente SignUp</Text>
-            <Button
-                title="Navegar a SignIn"
-                onPress={() => { navigation.goBack(); }}
-            />
-        </View>);
-};
 
 
     const RutasNoAutenticadas = createStackNavigator({
@@ -50,7 +29,6 @@ const SignUp = (props) => {
     // {
     //     navigationOptions: {
     //         title: 'Titulo desde el SN',
-
     //     },
     //
 
