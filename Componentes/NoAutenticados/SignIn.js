@@ -1,6 +1,7 @@
 // import liraries
 import React, { Component } from 'react';
 import { View, Text, StyleSheet, Button } from 'react-native';
+import SignInForm from './Formas/SignInForm';
 
 // create a component
 class SignIn extends Component {
@@ -9,6 +10,7 @@ class SignIn extends Component {
         return (
             <View style={styles.container}>
                 <Text>SignIn</Text>
+                <SignIn />
                 <Button
                     title="SignUp"
                     onPress={() => navigation.navigate('SignUp')}
@@ -24,7 +26,7 @@ const styles = StyleSheet.create({
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
-        backgroundColor: '#2c3e50',
+        backgroundColor: '#fff',
     },
 });
 
