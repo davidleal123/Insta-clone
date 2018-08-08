@@ -12,4 +12,4 @@ const config = {
   };
   firebase.initializeApp(config);
 
-  const autenticacion = firebase.auth;
+export const autenticacion = firebase.auth();

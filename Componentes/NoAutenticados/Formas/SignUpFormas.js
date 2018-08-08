@@ -2,6 +2,7 @@
 import React, { Component } from 'react';
 import { View, Text, StyleSheet, TextInput, Button } from 'react-native';
 import { Field, reduxForm } from 'redux-form';
+import { autenticacion } from '../../../Store/Servicios/Firebase';
 
 const fieldNombre = props => (
     <View style={styles.textInput}>
@@ -57,7 +58,6 @@ const validate = (value) => {
     if (!value.password === value.confirmacion) {
         errors.confirmacion = 'Las contraseñas deben coincidir';
     }
-
     return errors;
 };
 
@@ -70,7 +70,23 @@ const SignUpFormas = props => (
         <Field name="confirmacion" component={fieldNombre} ph="*******" />
         <Button
             title="Resgistrar"
-            onPress={props.handleSubmit(values => console.log(values))}
+            onPress={props.handleSubmit((values) => {
+                console.log(values);
+                autenticacion
+                    .createUserWithEmailAndPassword(values.correo, values.password)
+                    .then((success) => {
+                        console.log(success);
+                    })
+                    .catch(function (error) {
+                        // Handle Errors here.
+                        var errorCode = error.code;
+                        var errorMessage = error.message;
+                        console.log(errorCode);
+                        console.log(errorMessage);
+
+                        // ...
+                    });
+            })}
         />
     </View>
 );

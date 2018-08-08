@@ -1,4 +1,4 @@
-import { createStore, combineReducers } from 'redux';
+import { createStore, combineReducers, applyMiddleware } from 'redux';
 import { reducer as form } from 'redux-form';
 
 const reducerPrueba = (state = [], action) => {
@@ -10,10 +10,17 @@ const reducerPrueba = (state = [], action) => {
     }
 };
 
+// f(g(h(...args)))
+const miMiddleware = store => next => (action) => {
+    console.log('se ejecuta el middle');
+    next(action);
+};
+
+
 const reducers = combineReducers({
     reducerPrueba,
     form,
 });
-const store = createStore(reducers);
+const store = createStore(reducers, applyMiddleware(miMiddleware));
 
 export default store;

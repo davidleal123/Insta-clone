@@ -1,8 +1,8 @@
 {
-  "expoServerPort": 19000,
-  "packagerPort": 19001,
-  "packagerPid": 6052,
-  "expoServerNgrokUrl": "https://h8-n7c.davidlealx.instagram-clone.exp.direct",
-  "packagerNgrokUrl": "https://packager.h8-n7c.davidlealx.instagram-clone.exp.direct",
-  "ngrokPid": 4836
+  "expoServerPort": null,
+  "packagerPort": null,
+  "packagerPid": null,
+  "expoServerNgrokUrl": null,
+  "packagerNgrokUrl": null,
+  "ngrokPid": null
 }
